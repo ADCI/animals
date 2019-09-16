@@ -1,0 +1,8 @@
+.searchbar {
+  margin-bottom: 20px;
+}
+
+.searchbar__input {
+  padding: 10px;
+  font-size: 18px;
+}
