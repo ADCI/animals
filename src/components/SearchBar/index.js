@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import InputText from '../UI/InputText'
+
 import './styles.css';
 
 class SearchBar extends Component {
@@ -29,15 +31,12 @@ class SearchBar extends Component {
     const {term} = this.state;
 
     return (
-      <div className="searchbar">
-        <input
-          value={term}
-          type="text"
-          className="searchbar__input"
-          placeholder="Search grid"
-          onChange={this.dataSearch}
-        />
-      </div>
+      <InputText
+        id='searchbar'
+        className='searchbar'
+        placeholder='Search grid'
+        onChange={this.dataSearch}
+        value={term}/>
     );
   }
 }
