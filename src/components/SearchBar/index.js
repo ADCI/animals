@@ -8,6 +8,8 @@ class SearchBar extends Component {
   constructor(props) {
     super(props);
 
+    this.timeout =  0;
+
     this.state = {
       term: ''
     };
@@ -17,14 +19,17 @@ class SearchBar extends Component {
     const {dogs, updateFilter} = this.props;
 
     const value = e.target.value.toLowerCase();
-
     this.setState({term: value})
 
-    const filter = dogs.filter(dog => {
-      return dog.Name.toLowerCase().includes(value);
-    });
+    if(this.timeout) clearTimeout(this.timeout);
+    this.timeout = setTimeout(() => {
 
-    updateFilter(filter)
+      const filter = dogs.filter(dog => {
+        return dog.Name.toLowerCase().includes(value);
+      });
+
+      updateFilter(filter)
+    }, 300);
   };
 
   render() {
